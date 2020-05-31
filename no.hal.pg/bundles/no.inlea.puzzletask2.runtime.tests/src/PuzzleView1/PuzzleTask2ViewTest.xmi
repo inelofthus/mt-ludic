@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<app:GameApp
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:app="platform:/plugin/no.hal.pg.runtime/model/app.ecore"
+    xmlns:ineruntime="platform:/plugin/no.inela.runtime/model/runtime.ecore"
+    xmlns:puzzletask2="platform:/plugin/no.inlea.puzzletask2.runtime/model/puzzletask2.ecore"
+    xsi:schemaLocation="platform:/plugin/no.hal.pg.runtime/model/app.ecore ../../../no.hal.pg.runtime/model/app.ecore platform:/plugin/no.inela.runtime/model/runtime.ecore ../../../no.inela.runtime/model/runtime.ecore platform:/plugin/no.inlea.puzzletask2.runtime/model/puzzletask2.ecore ../../../no.inlea.puzzletask2.runtime/model/puzzletask2.ecore">
+  <model xsi:type="ineruntime:LeaderboardGame"
+      href="LeaderboardGameTest.xmi#/"/>
+  <views xsi:type="ineruntime:LeaderboardGameView">
+    <model xsi:type="ineruntime:LeaderboardGame"
+        href="LeaderboardGameTest.xmi#/"/>
+    <player
+        href="LeaderboardGameTest.xmi#//@players.0"/>
+    <taskViews
+        xsi:type="puzzletask2:PuzzleTaskView">
+      <model
+          xsi:type="puzzletask2:PuzzleTask2"
+          href="LeaderboardGameTest.xmi#//@tasks.0"/>
+    </taskViews>
+  </views>
+  <views xsi:type="ineruntime:LeaderboardGameView">
+    <model xsi:type="ineruntime:LeaderboardGame"
+        href="LeaderboardGameTest.xmi#/"/>
+    <player
+        href="LeaderboardGameTest.xmi#//@players.1"/>
+    <taskViews
+        xsi:type="puzzletask2:PuzzleTaskView">
+      <model
+          xsi:type="puzzletask2:PuzzleTask2"
+          href="LeaderboardGameTest.xmi#//@tasks.0"/>
+    </taskViews>
+  </views>
+  <views xsi:type="ineruntime:LeaderboardGameView">
+    <model xsi:type="ineruntime:LeaderboardGame"
+        href="LeaderboardGameTest.xmi#/"/>
+    <player
+        href="LeaderboardGameTest.xmi#//@players.2"/>
+    <taskViews
+        xsi:type="puzzletask2:PuzzleTaskView">
+      <model
+          xsi:type="puzzletask2:PuzzleTask2"
+          href="LeaderboardGameTest.xmi#//@tasks.0"/>
+    </taskViews>
+  </views>
+</app:GameApp>

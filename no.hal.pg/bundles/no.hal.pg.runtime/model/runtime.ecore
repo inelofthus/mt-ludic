@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="runtime" nsURI="platform:/plugin/no.hal.pg.runtime/model/runtime.ecore"
+    nsPrefix="runtime">
+  <eClassifiers xsi:type="ecore:EClass" name="Game">
+    <eTypeParameters name="T">
+      <eBounds eClassifier="#//Task">
+        <eTypeArguments/>
+      </eBounds>
+    </eTypeParameters>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="players" upperBound="-1"
+        eType="#//Player" containment="true" eOpposite="#//Player/game"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
+        eType="#//Item" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tasks" upperBound="-1"
+        containment="true" eOpposite="#//Task/game">
+      <eGenericType eTypeParameter="#//Game/T"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Player" eSuperTypes="platform:/plugin/no.hal.pg.osm/model/osm.ecore#//GeoLocation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="game" changeable="false"
+        eOpposite="#//Game/players">
+      <eGenericType eClassifier="#//Game">
+        <eTypeArguments/>
+      </eGenericType>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nickname" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="person" eType="ecore:EClass ../../no.hal.pg.arc/model/arc.ecore#//Person">
+      <eAnnotations source="no.hal.pg.http.impl.JsonSerializer">
+        <details key="include" value="true"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
+        eType="#//Item" containment="true" eOpposite="#//Item/owner"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Described" abstract="true" interface="true">
+    <eOperations name="getDescription" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="no.hal.pg.http.impl.JsonSerializer">
+        <details key="include" value="true"/>
+      </eAnnotations>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Item" eSuperTypes="platform:/plugin/no.hal.pg.osm/model/osm.ecore#//GeoLocated #//Described">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="owner" eType="#//Player"
+        eOpposite="#//Player/items"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownLocation" eType="ecore:EClass platform:/plugin/no.hal.pg.osm/model/osm.ecore#//GeoLocation"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InfoItem" eSuperTypes="#//Item">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="EURI" instanceClassName="java.net.URI"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Task" eSuperTypes="#//Described">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="PlayerIsContainedInGame IsFinishedImpliesIsStarted FinishTimeGEStartTime"/>
+    </eAnnotations>
+    <eTypeParameters name="R"/>
+    <eOperations name="canStart" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="no.hal.pg.http.impl.JsonSerializer">
+        <details key="include" value="true"/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="isStarted" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="no.hal.pg.http.impl.JsonSerializer">
+        <details key="include" value="true"/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="isFinished" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="no.hal.pg.http.impl.JsonSerializer">
+        <details key="include" value="true"/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="start"/>
+    <eOperations name="finish">
+      <eParameters name="result">
+        <eGenericType eTypeParameter="#//Task/R"/>
+      </eParameters>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="game" eOpposite="#//Game/tasks">
+      <eGenericType eClassifier="#//Game">
+        <eTypeArguments/>
+      </eGenericType>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="players" upperBound="-1"
+        eType="#//Player"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="result">
+      <eGenericType eTypeParameter="#//Task/R"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="startTime" eType="#//Timestamp"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="finishTime" eType="#//Timestamp"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="startConditions" upperBound="-1"
+        eType="#//Condition" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="finishConditions" upperBound="-1"
+        eType="#//Condition" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="startActions" upperBound="-1"
+        eType="#//Action" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="finishActions" upperBound="-1"
+        eType="#//Action" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ResettableTask">
+    <eTypeParameters name="R"/>
+    <eOperations name="reset"/>
+    <eGenericSuperTypes eClassifier="#//Task">
+      <eTypeArguments eTypeParameter="#//ResettableTask/R"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Condition" abstract="true" interface="true">
+    <eOperations name="test" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractCondition" abstract="true" eSuperTypes="#//Condition">
+    <eTypeParameters name="E"/>
+    <eOperations name="test" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="context">
+        <eGenericType eTypeParameter="#//AbstractCondition/E"/>
+      </eParameters>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="context">
+      <eGenericType eTypeParameter="#//AbstractCondition/E"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CompositeCondition" eSuperTypes="#//Condition">
+    <eTypeParameters name="E"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="logic" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="conditions" upperBound="-1"
+        eType="#//Condition" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IsTaskStartedCondition">
+    <eGenericSuperTypes eClassifier="#//AbstractCondition">
+      <eTypeArguments eClassifier="#//Task">
+        <eTypeArguments/>
+      </eTypeArguments>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IsTaskFinishedCondition">
+    <eGenericSuperTypes eClassifier="#//AbstractCondition">
+      <eTypeArguments eClassifier="#//Task">
+        <eTypeArguments/>
+      </eTypeArguments>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IsByGeoLocationCondition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="locations" upperBound="-1"
+        eType="ecore:EClass platform:/plugin/no.hal.pg.osm/model/osm.ecore#//GeoLocated"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="containedLocations" upperBound="-1"
+        eType="ecore:EClass platform:/plugin/no.hal.pg.osm/model/osm.ecore#//GeoLocated"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lowerTargetDistanceBound"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="upperTargetDistanceBound"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="logic" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eGenericSuperTypes eClassifier="#//AbstractCondition">
+      <eTypeArguments eClassifier="ecore:EClass platform:/plugin/no.hal.pg.osm/model/osm.ecore#//GeoLocated"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PlayersHaveItemsCondition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="itemClasses" upperBound="-1"
+        eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EClass"/>
+    <eGenericSuperTypes eClassifier="#//AbstractCondition">
+      <eTypeArguments eClassifier="#//Task">
+        <eTypeArguments/>
+      </eTypeArguments>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Action" abstract="true" interface="true">
+    <eOperations name="perform"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CompositeAction" eSuperTypes="#//Action">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actions" upperBound="-1"
+        eType="#//Action" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractGiveItemsAction" abstract="true"
+      eSuperTypes="#//Action">
+    <eOperations name="perform">
+      <eParameters name="player" eType="#//Player"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
+        eType="#//Item" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="copy" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GiveTaskPlayersItemsAction" eSuperTypes="#//AbstractGiveItemsAction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="task">
+      <eGenericType eClassifier="#//Task">
+        <eTypeArguments/>
+      </eGenericType>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="Timestamp" instanceClassName="java.lang.Long"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Runtime" eSuperTypes="../../no.hal.pg.arc/model/arc.ecore#//Arc">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="games" upperBound="-1"
+        containment="true">
+      <eGenericType eClassifier="#//Game">
+        <eTypeArguments/>
+      </eGenericType>
+    </eStructuralFeatures>
+  </eClassifiers>
+</ecore:EPackage>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/no.inlea.puzzletask3.config/src" editDirectory="/no.inlea.puzzletask3.config.edit/src"
+    editorDirectory="/no.inlea.puzzletask3.config.editor/src" modelPluginID="no.inlea.puzzletask3.config"
+    modelName="Config" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    testsDirectory="/no.inlea.puzzletask3.config.tests/src" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="5.0" copyrightFields="false" editPluginID="no.inlea.puzzletask3.config.edit"
+    editorPluginID="no.inlea.puzzletask3.config.editor" testsPluginID="no.inlea.puzzletask3.config.tests"
+    usedGenPackages="../../no.hal.pg.runtime/model/app.genmodel#//app ../../no.hal.pg.arc/model/arc.genmodel#//arc ../../no.hal.pg.config/model/config.genmodel#//config ../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../no.hal.pg.osm/model/osm.genmodel#//osm ../../no.inlea.puzzletask2.runtime/model/puzzletask2.genmodel#//runtime ../../no.inlea.puzzletask3.runtime/model/puzzletask3.genmodel#//runtime ../../no.hal.pg.runtime/model/runtime.genmodel#//runtime"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>config.ecore</foreignModel>
+  <genPackages prefix="Config" disposableProviderFactory="true" ecorePackage="config.ecore#/">
+    <genClasses ecoreClass="config.ecore#//PuzzleTask3Config">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference config.ecore#//PuzzleTask3Config/puzzle"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute config.ecore#//PuzzleTask3Config/openTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute config.ecore#//PuzzleTask3Config/closeTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute config.ecore#//PuzzleTask3Config/acceptableTargetDistance"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute config.ecore#//PuzzleTask3Config/maxScore"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute config.ecore#//PuzzleTask3Config/wrongAttemptPenalty"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference config.ecore#//PuzzleTask3Config/location"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute config.ecore#//PuzzleTask3Config/numCorrectRequired"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

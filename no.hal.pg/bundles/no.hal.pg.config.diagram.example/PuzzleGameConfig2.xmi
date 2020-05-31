@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:app="platform:/plugin/no.hal.pg.runtime/model/app.ecore"
+    xmlns:puzzletask2="platform:/plugin/no.inlea.puzzletask2.runtime/model/puzzletask2.ecore"
+    xmlns:runtime="platform:/plugin/no.hal.pg.runtime/model/runtime.ecore">
+  <app:GameApp
+      model="/1">
+    <views xsi:type="app:GameView"
+        model="/1"
+        player="/1/@players.0">
+      <taskViews
+          xsi:type="puzzletask2:PuzzleTaskView"
+          model="/1/@tasks.0"/>
+      <taskViews
+          xsi:type="puzzletask2:PuzzleTaskView"
+          model="/1/@tasks.1"/>
+      <taskViews
+          xsi:type="puzzletask2:PuzzleTaskView"
+          model="/1/@tasks.2"/>
+    </views>
+    <views xsi:type="app:GameView"
+        model="/1"
+        player="/1/@players.1">
+      <taskViews
+          xsi:type="puzzletask2:PuzzleTaskView"
+          model="/1/@tasks.0"/>
+      <taskViews
+          xsi:type="puzzletask2:PuzzleTaskView"
+          model="/1/@tasks.1"/>
+      <taskViews
+          xsi:type="puzzletask2:PuzzleTaskView"
+          model="/1/@tasks.2"/>
+    </views>
+  </app:GameApp>
+  <runtime:Game>
+    <players>
+      <person
+          href="Arc1.xmi#//@actors.0"/>
+    </players>
+    <players>
+      <person
+          href="Arc1.xmi#//@actors.1"/>
+    </players>
+    <tasks xsi:type="puzzletask2:PuzzleTask2"
+        players="/1/@players.0 /1/@players.1">
+      <startConditions
+          xsi:type="runtime:IsTaskFinishedCondition"
+          context="/1/@tasks.1"/>
+      <puzzle
+          xsi:type="puzzletask2:ImagePuzzle"
+          solution="color">
+        <puzzlePieces
+            image="red"/>
+        <puzzlePieces
+            image="blue"/>
+      </puzzle>
+      <taskScores/>
+    </tasks>
+    <tasks xsi:type="puzzletask2:PuzzleTask2"
+        players="/1/@players.0 /1/@players.1"
+        openTime="2020-03-30T15:00:00.000+0200"
+        closeTime="2020-03-30T17:00:00.000+0200">
+      <puzzle
+          xsi:type="puzzletask2:ImagePuzzle"
+          solution="organ">
+        <puzzlePieces
+            image="brain"/>
+        <puzzlePieces
+            image="heart"/>
+        <puzzlePieces
+            image="pipe organ"/>
+      </puzzle>
+      <taskScores/>
+    </tasks>
+    <tasks xsi:type="puzzletask2:PuzzleTask2"
+        players="/1/@players.0 /1/@players.1">
+      <puzzle
+          xsi:type="puzzletask2:ImagePuzzle"
+          solution="regissor">
+        <puzzlePieces
+            image="kubrick"/>
+        <puzzlePieces
+            image="spielberg"/>
+        <puzzlePieces
+            image="bay"/>
+      </puzzle>
+      <taskScores/>
+    </tasks>
+  </runtime:Game>
+</xmi:XMI>

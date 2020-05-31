@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Http
+Bundle-SymbolicName: no.inlea.puzzletask.runtime.http
+Bundle-Version: 1.0.0.qualifier
+Automatic-Module-Name: no.inlea.puzzletask.runtime.http
+Bundle-RequiredExecutionEnvironment: JavaSE-12
+Bundle-ActivationPolicy: lazy
+Import-Package: no.hal.pg.http
+Service-Component: OSGI-INF/no.inlea.puzzletask.runtime.http.PuzzleTaskViewConfig.xml
+Require-Bundle: no.inlea.puzzletask.runtime,
+ org.eclipse.osgi.services

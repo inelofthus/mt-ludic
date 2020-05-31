@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="app" nsURI="platform:/plugin/no.hal.pg.runtime/model/app.ecore"
+    nsPrefix="app">
+  <eClassifiers xsi:type="ecore:EClass" name="View" abstract="true">
+    <eTypeParameters name="U"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="user" lowerBound="1" changeable="false"
+        volatile="true" transient="true" derived="true">
+      <eGenericType eTypeParameter="#//View/U"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="View1" abstract="true">
+    <eTypeParameters name="U"/>
+    <eTypeParameters name="M"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="model" lowerBound="1">
+      <eGenericType eTypeParameter="#//View1/M"/>
+    </eStructuralFeatures>
+    <eGenericSuperTypes eClassifier="#//View">
+      <eTypeArguments eTypeParameter="#//View1/U"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="View2" abstract="true">
+    <eTypeParameters name="U"/>
+    <eTypeParameters name="M1"/>
+    <eTypeParameters name="M2"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="model1" lowerBound="1">
+      <eGenericType eTypeParameter="#//View2/M1"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="model2" lowerBound="1">
+      <eGenericType eTypeParameter="#//View2/M2"/>
+    </eStructuralFeatures>
+    <eGenericSuperTypes eClassifier="#//View">
+      <eTypeArguments eTypeParameter="#//View2/U"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GameView">
+    <eTypeParameters name="T">
+      <eBounds eClassifier="ecore:EClass runtime.ecore#//Task">
+        <eTypeArguments/>
+      </eBounds>
+    </eTypeParameters>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="player" eType="ecore:EClass runtime.ecore#//Player"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="taskViews" upperBound="-1"
+        containment="true">
+      <eGenericType eClassifier="#//TaskView">
+        <eTypeArguments eTypeParameter="#//GameView/T"/>
+      </eGenericType>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="allItemViews" upperBound="-1"
+        eType="#//ItemView" containment="true">
+      <eAnnotations source="no.hal.pg.http.impl.JsonSerializer">
+        <details key="exclude" value="true"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="itemViews" upperBound="-1"
+        eType="#//ItemView" changeable="false" volatile="true" transient="true" derived="true">
+      <eAnnotations source="no.hal.pg.http.impl.JsonSerializer">
+        <details key="include" value="true"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eGenericSuperTypes eClassifier="#//View1">
+      <eTypeArguments eClassifier="ecore:EClass runtime.ecore#//Player"/>
+      <eTypeArguments eClassifier="ecore:EClass runtime.ecore#//Game">
+        <eTypeArguments eTypeParameter="#//GameView/T"/>
+      </eTypeArguments>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="App" abstract="true">
+    <eTypeParameters name="V">
+      <eBounds eClassifier="#//View1">
+        <eTypeArguments eTypeParameter="#//App/U"/>
+        <eTypeArguments eTypeParameter="#//App/M"/>
+      </eBounds>
+    </eTypeParameters>
+    <eTypeParameters name="U"/>
+    <eTypeParameters name="M"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="model">
+      <eGenericType eTypeParameter="#//App/M"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="views" upperBound="-1"
+        containment="true">
+      <eGenericType eTypeParameter="#//App/V"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GameApp">
+    <eTypeParameters name="T">
+      <eBounds eClassifier="ecore:EClass runtime.ecore#//Task">
+        <eTypeArguments/>
+      </eBounds>
+    </eTypeParameters>
+    <eGenericSuperTypes eClassifier="#//App">
+      <eTypeArguments eClassifier="#//GameView">
+        <eTypeArguments eTypeParameter="#//GameApp/T"/>
+      </eTypeArguments>
+      <eTypeArguments eClassifier="ecore:EClass runtime.ecore#//Player"/>
+      <eTypeArguments eClassifier="ecore:EClass runtime.ecore#//Game">
+        <eTypeArguments eTypeParameter="#//GameApp/T"/>
+      </eTypeArguments>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TaskView">
+    <eTypeParameters name="T">
+      <eBounds eClassifier="ecore:EClass runtime.ecore#//Task">
+        <eTypeArguments/>
+      </eBounds>
+    </eTypeParameters>
+    <eOperations name="start">
+      <eGenericType eClassifier="#//TaskView">
+        <eTypeArguments/>
+      </eGenericType>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="enabled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="started" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="finished" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eGenericSuperTypes eClassifier="#//View1">
+      <eTypeArguments eClassifier="ecore:EClass runtime.ecore#//Player"/>
+      <eTypeArguments eTypeParameter="#//TaskView/T"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ItemView">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eGenericSuperTypes eClassifier="#//View1">
+      <eTypeArguments eClassifier="ecore:EClass runtime.ecore#//Player"/>
+      <eTypeArguments eClassifier="ecore:EClass runtime.ecore#//Item"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MapView" eSuperTypes="platform:/plugin/no.hal.pg.osm/model/osm.ecore#//GeoLocation">
+    <eOperations name="navigate">
+      <eParameters name="latitude" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+      <eParameters name="longitude" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+      <eParameters name="zoom" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="zoom" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="10"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="geoLocationViews" upperBound="-1"
+        eType="#//AbstractGeoLocationView" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="geoPolylines" upperBound="-1"
+        eType="#//AbstractGeoLocationView" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractGeoLocationView" abstract="true"
+      eSuperTypes="platform:/plugin/no.hal.pg.osm/model/osm.ecore#//GeoLocated">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="latLong" eType="ecore:EDataType platform:/plugin/no.hal.pg.osm/model/osm.ecore#//LatLong"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="options" eType="#//MapMarkerOptions"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MapMarkerOptions">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="radius" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="color" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GeoLocatedView" eSuperTypes="#//AbstractGeoLocationView">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="location" eType="ecore:EClass platform:/plugin/no.hal.pg.osm/model/osm.ecore#//GeoLocated"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GeoLocationView" eSuperTypes="#//AbstractGeoLocationView platform:/plugin/no.hal.pg.osm/model/osm.ecore#//GeoLocation"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GeoPolyline">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="locations" upperBound="-1"
+        eType="ecore:EClass platform:/plugin/no.hal.pg.osm/model/osm.ecore#//GeoLocated">
+      <eAnnotations source="no.hal.pg.http.impl.JsonSerializer">
+        <details key="include" value="true"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="closed" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+</ecore:EPackage>

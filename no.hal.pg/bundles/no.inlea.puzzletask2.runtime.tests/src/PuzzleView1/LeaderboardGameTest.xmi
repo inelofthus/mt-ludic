@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ineruntime:LeaderboardGame
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ineruntime="platform:/plugin/no.inela.runtime/model/runtime.ecore"
+    xmlns:puzzletask2="platform:/plugin/no.inlea.puzzletask2.runtime/model/puzzletask2.ecore"
+    xsi:schemaLocation="platform:/plugin/no.inela.runtime/model/runtime.ecore ../../../no.inela.runtime/model/runtime.ecore platform:/plugin/no.inlea.puzzletask2.runtime/model/puzzletask2.ecore ../../../no.inlea.puzzletask2.runtime/model/puzzletask2.ecore">
+  <players>
+    <person
+        href="../Person1.xmi#/"/>
+  </players>
+  <players>
+    <person
+        href="../Person2.xmi#/"/>
+  </players>
+  <players>
+    <person
+        href="../Person3.xmi#/"/>
+  </players>
+  <tasks xsi:type="puzzletask2:PuzzleTask2"
+      latitude="63.41929"
+      longitude="10.401694">
+    <puzzle
+        xsi:type="puzzletask2:ImagePuzzle"
+        solution="fruit">
+      <puzzlePieces
+          image="apple"/>
+      <puzzlePieces
+          image="banana"/>
+      <puzzlePieces
+          image="orange"/>
+    </puzzle>
+  </tasks>
+</ineruntime:LeaderboardGame>

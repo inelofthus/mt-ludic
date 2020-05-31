@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ineruntime:LeaderboardGame xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ineruntime="platform:/plugin/no.inela.runtime/model/runtime.ecore" xmlns:puzzletask="platform:/plugin/no.inela.puzzletask.runtime/model/puzzletask.ecore" xsi:schemaLocation="platform:/plugin/no.inela.runtime/model/runtime.ecore ../../../no.inela.runtime/model/runtime.ecore platform:/plugin/no.inela.puzzletask.runtime/model/puzzletask.ecore ../puzzletask.ecore">
+  <players>
+    <person href="../Person1.xmi#/"/>
+  </players>
+  <players>
+    <person href="../Person2.xmi#/"/>
+  </players>
+  <tasks xsi:type="puzzletask:PuzzleTask">
+    <puzzles xsi:type="puzzletask:SimplePuzzle" level="1" solution="fruit">
+      <puzzlePieces players="//@players.0" image="apple"/>
+      <puzzlePieces image="banana"/>
+      <puzzlePieces image="orange"/>
+    </puzzles>
+  </tasks>
+  <tasks/>
+  <leaderboard>
+    <playerTotalScores key="//@players.0" value="150"/>
+    <playerTotalScores key="//@players.1" value="30"/>
+    <playerTaskScores task="//@tasks.0">
+      <playerScores key="//@players.0" value="100"/>
+    </playerTaskScores>
+    <playerTaskScores task="//@tasks.1">
+      <playerScores key="//@players.0" value="50"/>
+      <playerScores key="//@players.1" value="30"/>
+    </playerTaskScores>
+  </leaderboard>
+</ineruntime:LeaderboardGame>

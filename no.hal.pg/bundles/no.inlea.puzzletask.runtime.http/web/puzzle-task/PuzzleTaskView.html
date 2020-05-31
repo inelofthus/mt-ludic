@@ -1,0 +1,34 @@
+<html>
+<head>
+	<title>PuzzleTask</title>
+	<meta charset="UTF-8"/>
+
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet.css">
+	<script src="https://unpkg.com/react@^15.6/dist/react.js"></script>
+	<script src="https://unpkg.com/react-dom@^15.6/dist/react-dom.js"></script>
+    <script src="https://unpkg.com/leaflet@^1.2/dist/leaflet.js"></script>
+	<script src="https://unpkg.com/react-leaflet@^1.4/dist/react-leaflet.js"></script>
+</head>
+<body>
+
+<div id="puzzleTask"></div>
+
+<script src="/js/AppUtils.js"></script>
+<script src="PuzzleTaskView.js"></script>
+
+<script type="text/javascript">
+	var puzzleTaskViewData = {
+		locationLatitude: 63.41929, locationLongitude: 10.401694,
+		hint: "You are far away...",
+	};
+	var dataUrl = AppUtils.appProps({}).dataUrl;
+	var returnUrl = document.referrer;
+	AppUtils.loadData(dataUrl + "/start", false, puzzleTaskViewData, function(props) {
+		props['dataUrl'] = dataUrl;
+		props['returnUrl'] = returnUrl;
+		ReactDOM.render(React.createElement(PuzzleTaskView, props), document.getElementById('puzzleTask'));
+	});
+</script>
+</body>
+</html>

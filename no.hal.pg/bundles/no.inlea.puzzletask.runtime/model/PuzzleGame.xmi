@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<runtime:Game xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:puzzletask="platform:/plugin/no.inela.puzzletask.runtime/model/puzzletask.ecore" xmlns:runtime="platform:/plugin/no.hal.pg.runtime/model/runtime.ecore" xsi:schemaLocation="platform:/plugin/no.inela.puzzletask.runtime/model/puzzletask.ecore puzzletask.ecore platform:/plugin/no.hal.pg.runtime/model/runtime.ecore ../../no.hal.pg.runtime/model/runtime.ecore">
+  <players nickname="Ine">
+    <person href="Person1.xmi#/"/>
+  </players>
+  <tasks xsi:type="puzzletask:PuzzleTask">
+    <puzzles xsi:type="puzzletask:SimplePuzzle" level="1" solution="fruit">
+      <puzzlePieces image="apple"/>
+      <puzzlePieces image="banana"/>
+      <puzzlePieces image="orange"/>
+    </puzzles>
+    <puzzles xsi:type="puzzletask:SimplePuzzle" level="1" solution="organ">
+      <puzzlePieces image="heart"/>
+      <puzzlePieces image="brain"/>
+      <puzzlePieces image="pipe organ"/>
+    </puzzles>
+  </tasks>
+</runtime:Game>

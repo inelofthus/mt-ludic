@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ineruntime:LeaderboardGame
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ineruntime="platform:/plugin/no.inela.runtime/model/runtime.ecore"
+    xmlns:puzzletask3="platform:/plugin/no.inlea.puzzletask3.runtime/model/puzzletask3.ecore"
+    xmlns:runtime="platform:/plugin/no.hal.pg.runtime/model/runtime.ecore">
+  <players person="//@teams.0/@members.0"/>
+  <players person="//@teams.1/@members.0"/>
+  <players>
+    <person
+        href="../Person3.xmi#/"/>
+  </players>
+  <players person="//@teams.0/@members.1"/>
+  <players person="//@teams.0/@members.2"/>
+  <tasks xsi:type="puzzletask3:PuzzleTask3"
+      latitude="63.41585"
+      longitude="10.404837">
+    <puzzle
+        solution="kingsman"
+        instructions="">
+      <puzzlePieces
+          xsi:type="puzzletask3:ImagePiece"
+          name="Taron Egerton"
+          imageUrl="img/film1/img0.jpg"/>
+      <puzzlePieces
+          xsi:type="puzzletask3:ImagePiece"
+          name="Channing Tatum"
+          imageUrl="img/film1/img1.jpg"/>
+      <puzzlePieces
+          xsi:type="puzzletask3:ImagePiece"
+          name="Elton John"
+          imageUrl="img/film1/img2.jpg"/>
+    </puzzle>
+    <taskScores/>
+  </tasks>
+  <tasks xsi:type="puzzletask3:PuzzleTask3"
+      latitude="63.416973"
+      longitude="10.404551">
+    <startConditions
+        xsi:type="runtime:IsTaskFinishedCondition"
+        context="//@tasks.0"/>
+    <puzzle
+        solution="ferie"
+        instructions="">
+      <puzzlePieces
+          xsi:type="puzzletask3:ImagePiece"
+          name="fairy"
+          imageUrl="img/rebus1/img0.jpg"/>
+      <puzzlePieces
+          xsi:type="puzzletask3:ImagePiece"
+          name="horse"
+          imageUrl="img/rebus1/img1.jpg"/>
+      <puzzlePieces
+          xsi:type="puzzletask3:ImagePiece"
+          name="tea"
+          imageUrl="img/rebus1/img2.jpg"/>
+    </puzzle>
+    <taskScores/>
+  </tasks>
+  <tasks xsi:type="puzzletask3:PuzzleTask3"
+      latitude="63.418114"
+      longitude="10.403298">
+    <startConditions
+        xsi:type="runtime:IsTaskFinishedCondition"
+        context="//@tasks.1"/>
+    <puzzle
+        solution="søt"
+        instructions="">
+      <puzzlePieces
+          xsi:type="puzzletask3:ImagePiece"
+          name="crossword"
+          imageUrl="img/rebus2/img3.jpg"/>
+      <puzzlePieces
+          xsi:type="puzzletask3:ImagePiece"
+          name="vask"
+          imageUrl="img/rebus2/img0.jpg"/>
+      <puzzlePieces
+          xsi:type="puzzletask3:ImagePiece"
+          name="øks"
+          imageUrl="img/rebus2/img1.jpg"/>
+      <puzzlePieces
+          xsi:type="puzzletask3:ImagePiece"
+          name="sti"
+          imageUrl="img/rebus2/img2.jpg"/>
+    </puzzle>
+    <taskScores/>
+  </tasks>
+  <tasks xsi:type="puzzletask3:PuzzleTask3"
+      latitude="63.418"
+      longitude="10.401662">
+    <startConditions
+        xsi:type="runtime:IsTaskFinishedCondition"
+        context="//@tasks.2"/>
+    <puzzle
+        solution="frankrike"
+        instructions="">
+      <puzzlePieces
+          xsi:type="puzzletask3:ImagePiece"
+          name="Renault"
+          imageUrl="img/geography1/img0.jpg"/>
+      <puzzlePieces
+          xsi:type="puzzletask3:ImagePiece"
+          name="Federer"
+          imageUrl="img/geography1/img1.jpg"/>
+      <puzzlePieces
+          xsi:type="puzzletask3:ImagePiece"
+          name="Fourcade"
+          imageUrl="img/geography1/img2.jpg"/>
+      <puzzlePieces
+          xsi:type="puzzletask3:ImagePiece"
+          name="Eiffel tower"
+          imageUrl="img/geography1/img3.jpg"/>
+    </puzzle>
+    <taskScores/>
+  </tasks>
+  <tasks xsi:type="puzzletask3:PuzzleTask3"
+      latitude="63.418564"
+      longitude="10.401374">
+    <startConditions
+        xsi:type="runtime:IsTaskFinishedCondition"
+        context="//@tasks.3"/>
+    <puzzle
+        solution="259"
+        instructions="">
+      <puzzlePieces
+          xsi:type="puzzletask3:ImagePiece"
+          name="board"
+          imageUrl="img/iq1/img0.jpg"/>
+      <puzzlePieces
+          xsi:type="puzzletask3:ImagePiece"
+          name="259"
+          imageUrl="img/iq1/img1.jpg"/>
+      <puzzlePieces
+          xsi:type="puzzletask3:ImagePiece"
+          name="198"
+          imageUrl="img/iq1/img2.jpg"/>
+      <puzzlePieces
+          xsi:type="puzzletask3:ImagePiece"
+          name="235"
+          imageUrl="img/iq1/img2.jpg"/>
+    </puzzle>
+    <taskScores/>
+  </tasks>
+  <tasks xsi:type="puzzletask3:PuzzleTask3"
+      latitude="63.41801"
+      longitude="10.401745">
+    <startConditions
+        xsi:type="runtime:IsTaskFinishedCondition"
+        context="//@tasks.4"/>
+    <puzzle
+        solution="grønn"
+        instructions="">
+      <puzzlePieces
+          xsi:type="puzzletask3:ImagePiece"
+          name="Robin Hood"
+          imageUrl="img/common1/img0.jpg"/>
+      <puzzlePieces
+          xsi:type="puzzletask3:ImagePiece"
+          name="rainbow"
+          imageUrl="img/common1/img1.jpg"/>
+      <puzzlePieces
+          xsi:type="puzzletask3:ImagePiece"
+          name="forrest"
+          imageUrl="img/common1/img2.jpg"/>
+    </puzzle>
+    <taskScores/>
+  </tasks>
+  <tasks xsi:type="puzzletask3:PuzzleTask3"
+      latitude="63.418102"
+      longitude="10.403313">
+    <startConditions
+        xsi:type="runtime:IsTaskFinishedCondition"
+        context="//@tasks.5"/>
+    <puzzle
+        solution="spøkelseskladden"
+        instructions="">
+      <puzzlePieces
+          xsi:type="puzzletask3:ImagePiece"
+          name="rebus2_0"
+          imageUrl="img/rebus2/img0.jpg"/>
+      <puzzlePieces
+          xsi:type="puzzletask3:ImagePiece"
+          name="rebus2_1"
+          imageUrl="img/rebus2/img1.jpg"/>
+      <puzzlePieces
+          xsi:type="puzzletask3:ImagePiece"
+          name="rebus2_2"
+          imageUrl="img/rebus2/img2.jpg"/>
+    </puzzle>
+    <taskScores/>
+  </tasks>
+  <tasks xsi:type="puzzletask3:PuzzleTask3"
+      latitude="63.417316"
+      longitude="10.402948">
+    <startConditions
+        xsi:type="runtime:IsTaskFinishedCondition"
+        context="//@tasks.6"/>
+    <puzzle
+        solution="2"
+        instructions="">
+      <puzzlePieces
+          xsi:type="puzzletask3:ImagePiece"
+          name="board"
+          imageUrl="img/iq2/img0.jpg"/>
+      <puzzlePieces
+          xsi:type="puzzletask3:ImagePiece"
+          name="2"
+          imageUrl="img/iq2/img1.jpg"/>
+      <puzzlePieces
+          xsi:type="puzzletask3:ImagePiece"
+          name="25"
+          imageUrl="img/iq2/img2.jpg"/>
+      <puzzlePieces
+          xsi:type="puzzletask3:ImagePiece"
+          name="18"
+          imageUrl="img/iq2/img3.jpg"/>
+    </puzzle>
+    <taskScores/>
+  </tasks>
+  <tasks xsi:type="puzzletask3:PuzzleTask3"
+      latitude="63.417686"
+      longitude="10.403802">
+    <startConditions
+        xsi:type="runtime:IsTaskFinishedCondition"
+        context="//@tasks.7"/>
+    <puzzle
+        solution="engelsk"
+        instructions="">
+      <puzzlePieces
+          xsi:type="puzzletask3:ImagePiece"
+          name="Hugh Grant"
+          imageUrl="img/film2/img0.jpg"/>
+      <puzzlePieces
+          xsi:type="puzzletask3:ImagePiece"
+          name="Emma Watson"
+          imageUrl="img/film2/img1.jpg"/>
+      <puzzlePieces
+          xsi:type="puzzletask3:ImagePiece"
+          name="Tom Hardy"
+          imageUrl="img/film2/img2.jpg"/>
+    </puzzle>
+    <taskScores/>
+  </tasks>
+  <tasks xsi:type="puzzletask3:PuzzleTask3"
+      latitude="63.417145"
+      longitude="10.404358">
+    <startConditions
+        xsi:type="runtime:IsTaskFinishedCondition"
+        context="//@tasks.8"/>
+    <puzzle
+        solution="batman"
+        instructions="">
+      <puzzlePieces
+          xsi:type="puzzletask3:ImagePiece"
+          name="Justice League"
+          imageUrl="img/superheroes1/img0.jpg"/>
+      <puzzlePieces
+          xsi:type="puzzletask3:ImagePiece"
+          name="Christopher Nolan"
+          imageUrl="img/superheroes1/img1.jpg"/>
+      <puzzlePieces
+          xsi:type="puzzletask3:ImagePiece"
+          name="Bane"
+          imageUrl="img/superheroes1/img2.jpg"/>
+    </puzzle>
+    <taskScores/>
+  </tasks>
+  <tasks xsi:type="puzzletask3:PuzzleTask3"
+      latitude="63.41673"
+      longitude="10.403466">
+    <startConditions
+        xsi:type="runtime:IsTaskFinishedCondition"
+        context="//@tasks.9"/>
+    <puzzle
+        solution="frozen"
+        instructions="">
+      <puzzlePieces
+          xsi:type="puzzletask3:ImagePiece"
+          name="Idina Menzel"
+          imageUrl="img/film3/img0.jpg"/>
+      <puzzlePieces
+          xsi:type="puzzletask3:ImagePiece"
+          name="Disney"
+          imageUrl="img/film3/img1.jpg"/>
+      <puzzlePieces
+          xsi:type="puzzletask3:ImagePiece"
+          name="reindeer"
+          imageUrl="img/film3/img2.jpg"/>
+      <puzzlePieces
+          xsi:type="puzzletask3:ImagePiece"
+          name="Elsa"
+          imageUrl="img/film3/img3.jpg"/>
+    </puzzle>
+    <taskScores/>
+  </tasks>
+  <tasks xsi:type="puzzletask3:PuzzleTask3"
+      latitude="63.417084"
+      longitude="10.402473">
+    <startConditions
+        xsi:type="runtime:IsTaskFinishedCondition"
+        context="//@tasks.10"/>
+    <puzzle
+        solution="chris hemsworth"
+        instructions="">
+      <puzzlePieces
+          xsi:type="puzzletask3:ImagePiece"
+          name="Marvel"
+          imageUrl="img/film4/img0.jpg"/>
+      <puzzlePieces
+          xsi:type="puzzletask3:ImagePiece"
+          name="Thor's hammer"
+          imageUrl="img/film4/img1.jpg"/>
+      <puzzlePieces
+          xsi:type="puzzletask3:ImagePiece"
+          name="The Huntsman Winter's War"
+          imageUrl="img/film4/img2.jpg"/>
+    </puzzle>
+    <taskScores/>
+  </tasks>
+  <leaderboard/>
+  <teams name="Group A">
+    <members
+        name="Ine"/>
+    <members
+        name="Jan"/>
+    <members
+        name="Henrik"/>
+  </teams>
+  <teams name="Group B">
+    <members
+        name="Mari"/>
+  </teams>
+</ineruntime:LeaderboardGame>

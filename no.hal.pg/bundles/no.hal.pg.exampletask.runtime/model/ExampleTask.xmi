@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<exampletask-runtime:ExampleTask
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:exampletask-runtime="platform:/plugin/no.hal.pg.exampletask.runtime/model/exampletask.ecore"
+    xsi:schemaLocation="platform:/plugin/no.hal.pg.exampletask.runtime/model/exampletask.ecore exampletask.ecore"
+    question="Is this a question?"
+    correctAnswer="true"/>

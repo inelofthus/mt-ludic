@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ineruntime:LeaderboardGameView xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ineruntime="platform:/plugin/no.inela.runtime/model/runtime.ecore"
+    xsi:schemaLocation="platform:/plugin/no.inela.runtime/model/runtime.ecore ../../../../../../../no.inela.runtime/model/runtime.ecore"/>

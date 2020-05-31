@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<puzzletask:PuzzleTaskView
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:puzzletask="platform:/plugin/no.inela.puzzletask.runtime/model/puzzletask.ecore"
+    xsi:schemaLocation="platform:/plugin/no.inela.puzzletask.runtime/model/puzzletask.ecore puzzletask.ecore">
+  <model xsi:type="puzzletask:PuzzleTask"
+      href="PuzzleGame.xmi#//@tasks.0"/>
+</puzzletask:PuzzleTaskView>

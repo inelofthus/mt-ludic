@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated puzzletask2 -->
+      <package
+            uri="platform:/plugin/no.inlea.puzzletask2.runtime/model/puzzletask2.ecore"
+            class="no.inlea.puzzletask2.runtime.RuntimePackage"
+            genModel="model/puzzletask2.genmodel"/>
+   </extension>
+
+</plugin>

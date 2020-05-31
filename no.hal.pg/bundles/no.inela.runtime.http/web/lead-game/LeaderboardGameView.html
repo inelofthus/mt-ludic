@@ -1,0 +1,56 @@
+<html>
+<head>
+	<title>LUDIC</title>
+	<meta charset="UTF-8"/>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="/game/Game.css">
+	<link rel="stylesheet" href="LeaderboardGame.css">
+	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet.css">
+	
+	<script src="https://unpkg.com/react@^15.6/dist/react.js"></script>
+	<script src="https://unpkg.com/react-dom@^15.6/dist/react-dom.js"></script>
+	<script src="https://unpkg.com/leaflet@^1.2/dist/leaflet.js"></script>
+	<script src="https://unpkg.com/react-leaflet@^1.4/dist/react-leaflet.js"></script>
+	
+</head>
+<body>
+
+<div id="game"></div>
+
+<script type="text/javascript">
+function require(mod) {
+	if (mod === 'react') {
+		return React;
+	}
+	return null;
+}
+</script>
+
+<script src="https://unpkg.com/remarkable@^1.7/dist/remarkable.js"></script>
+<script src="https://unpkg.com/remarkable-react@^1.4"></script>
+
+<script src="/js/AppUtils.js"></script>
+
+<script src="LeaderboardGameView.js"></script>
+<script src="TaskView.js"></script>
+<script src="/game/ItemView.js"></script>
+<script src="/game/MapView.js"></script>
+
+<script type="text/javascript">
+	var leadGameViewData = {
+		mapView: {
+			latitude: 63.41929, longitude: 10.401694, zoom: 16
+		},
+		taskViews: [ ]
+	};
+	var appProps = AppUtils.appProps({});
+	AppUtils.loadData(appProps.dataUrl, false, leadGameViewData, function(props) {
+		props['dataUrl'] = appProps.dataUrl;
+		ReactDOM.render(React.createElement(LeaderboardGameView, props), document.getElementById('game'));
+	});
+</script>
+</body>
+</html>

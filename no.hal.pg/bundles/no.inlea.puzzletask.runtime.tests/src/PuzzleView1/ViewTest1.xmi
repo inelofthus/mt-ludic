@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ineruntime:LeaderboardGameView
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ineruntime="platform:/plugin/no.inela.runtime/model/runtime.ecore"
+    xmlns:puzzletask="platform:/plugin/no.inela.puzzletask.runtime/model/puzzletask.ecore"
+    xsi:schemaLocation="platform:/plugin/no.inela.runtime/model/runtime.ecore ../../../no.inela.runtime/model/runtime.ecore platform:/plugin/no.inela.puzzletask.runtime/model/puzzletask.ecore ../../../no.inlea.puzzletask.runtime/model/puzzletask.ecore">
+  <model xsi:type="ineruntime:LeaderboardGame"
+      href="TaskTest1.xmi#/"/>
+  <player href="TaskTest1.xmi#//@players.0"/>
+  <taskViews
+      xsi:type="puzzletask:PuzzleTaskView">
+    <model xsi:type="puzzletask:PuzzleTask"
+        href="TaskTest1.xmi#//@tasks.0"/>
+  </taskViews>
+</ineruntime:LeaderboardGameView>

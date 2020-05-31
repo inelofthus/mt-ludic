@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="config" nsURI="platform:/resource/no.inlea.puzzletask3.config/model/config.ecore"
+    nsPrefix="puzzletask3-config">
+  <eClassifiers xsi:type="ecore:EClass" name="PuzzleTask3Config">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="puzzle" eType="ecore:EClass ../../no.inlea.puzzletask3.runtime/model/puzzletask3.ecore#//Puzzle"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="openTime" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="closeTime" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="acceptableTargetDistance"
+        eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxScore" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="wrongAttemptPenalty" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="location" eType="ecore:EClass ../../no.hal.pg.osm/model/osm.ecore#//GeoLocation"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numCorrectRequired" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"/>
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../no.hal.pg.config/model/config.ecore#//TaskConfig">
+      <eTypeArguments eClassifier="ecore:EClass ../../no.inlea.puzzletask3.runtime/model/puzzletask3.ecore#//PuzzleTask3"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+</ecore:EPackage>

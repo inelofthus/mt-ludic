@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="no.inlea.puzzletask2.runtime.http.PuzzleTask3ViewConfig">
+   <property name="osgi.http.whiteboard.resource.prefix" type="String" value="/web/puzzle-task3"/>
+   <property name="osgi.http.whiteboard.resource.pattern" type="String" value="/puzzle-task3/*"/>
+   <service>
+      <provide interface="no.inlea.puzzletask2.runtime.http.PuzzleTask3ViewConfig"/>
+      <provide interface="no.hal.pg.http.AppConfig"/>
+   </service>
+   <implementation class="no.inlea.puzzletask2.runtime.http.PuzzleTask3ViewConfig"/>
+</scr:component>

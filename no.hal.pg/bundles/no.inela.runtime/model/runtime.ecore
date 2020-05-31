@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="ineruntime" nsURI="platform:/plugin/no.inela.runtime/model/runtime.ecore"
+    nsPrefix="ineruntime">
+  <eClassifiers xsi:type="ecore:EClass" name="LeaderboardGame">
+    <eOperations name="getActiveTask">
+      <eGenericType eClassifier="ecore:EClass ../../no.hal.pg.runtime/model/runtime.ecore#//Task">
+        <eTypeArguments/>
+      </eGenericType>
+      <eParameters name="player" eType="ecore:EClass ../../no.hal.pg.runtime/model/runtime.ecore#//Player"/>
+    </eOperations>
+    <eOperations name="updateLeaderboard">
+      <eParameters name="player" eType="ecore:EClass ../../no.hal.pg.runtime/model/runtime.ecore#//Player"/>
+      <eParameters name="score" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="leaderboard" eType="#//Leaderboard"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="playersActiveTasks" upperBound="-1"
+        eType="#//PlayerToTask" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="teams" upperBound="-1"
+        eType="ecore:EClass ../../no.hal.pg.arc/model/arc.ecore#//Group" containment="true"/>
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../no.hal.pg.runtime/model/runtime.ecore#//Game">
+      <eTypeArguments eClassifier="ecore:EClass ../../no.hal.pg.runtime/model/runtime.ecore#//Task">
+        <eTypeArguments/>
+      </eTypeArguments>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Leaderboard">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="playerTotalScores" upperBound="-1"
+        eType="#//PlayerToInt" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="teamTotalScores" upperBound="-1"
+        eType="#//GroupToInt" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PlayerToInt" instanceClassName="java.util.Map$Entry">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="key" eType="ecore:EClass ../../no.hal.pg.runtime/model/runtime.ecore#//Player"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EIntegerObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LeaderboardGameView">
+    <eOperations name="setPlayerLocation" eType="#//LeaderboardGameView">
+      <eParameters name="latitude" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EFloat"/>
+      <eParameters name="longitude" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EFloat"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mapView" eType="ecore:EClass ../../no.hal.pg.runtime/model/app.ecore#//MapView"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="location" eType="ecore:EDataType ../../no.hal.pg.osm/model/osm.ecore#//LatLong"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="leaderboard" changeable="false"
+        volatile="true" transient="true" derived="true">
+      <eGenericType eClassifier="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EMap">
+        <eTypeArguments eClassifier="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+        <eTypeArguments eClassifier="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EIntegerObject"/>
+      </eGenericType>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="teamLeaderboard" changeable="false"
+        volatile="true" transient="true" derived="true">
+      <eGenericType eClassifier="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EMap">
+        <eTypeArguments eClassifier="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+        <eTypeArguments eClassifier="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EIntegerObject"/>
+      </eGenericType>
+    </eStructuralFeatures>
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../no.hal.pg.runtime/model/app.ecore#//GameView">
+      <eTypeArguments eClassifier="ecore:EClass ../../no.hal.pg.runtime/model/runtime.ecore#//Task">
+        <eTypeArguments/>
+      </eTypeArguments>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PlayerToTask" instanceClassName="java.util.Map$Entry">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="key" eType="ecore:EClass ../../no.hal.pg.runtime/model/runtime.ecore#//Player"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value">
+      <eGenericType eClassifier="ecore:EClass ../../no.hal.pg.runtime/model/runtime.ecore#//Task">
+        <eTypeArguments/>
+      </eGenericType>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GroupToInt" instanceClassName="java.util.Map$Entry">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="key" eType="ecore:EClass ../../no.hal.pg.arc/model/arc.ecore#//Group"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EIntegerObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PlayerAction" abstract="true" interface="true">
+    <eOperations name="perform">
+      <eParameters name="player" eType="ecore:EClass ../../no.hal.pg.runtime/model/runtime.ecore#//Player"/>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CompositePlayerAction" eSuperTypes="#//PlayerAction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="playerActions" upperBound="-1"
+        eType="#//PlayerAction" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SetTaskToActiveAction" eSuperTypes="#//PlayerAction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="task">
+      <eGenericType eClassifier="ecore:EClass ../../no.hal.pg.runtime/model/runtime.ecore#//Task">
+        <eTypeArguments/>
+      </eGenericType>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RemoveTaskFromActiveAction" eSuperTypes="#//PlayerAction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="task">
+      <eGenericType eClassifier="ecore:EClass ../../no.hal.pg.runtime/model/runtime.ecore#//Task">
+        <eTypeArguments/>
+      </eGenericType>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PlayerCondition" abstract="true" interface="true">
+    <eOperations name="test" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean">
+      <eParameters name="player" eType="ecore:EClass ../../no.hal.pg.runtime/model/runtime.ecore#//Player"/>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CompositePlayerCondition" eSuperTypes="#//PlayerCondition">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="logic" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="playerConditions" upperBound="-1"
+        eType="#//PlayerCondition" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IsOnlyTaskActiveForPlayerCondition"
+      eSuperTypes="#//PlayerCondition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="task">
+      <eGenericType eClassifier="ecore:EClass ../../no.hal.pg.runtime/model/runtime.ecore#//Task">
+        <eTypeArguments/>
+      </eGenericType>
+    </eStructuralFeatures>
+  </eClassifiers>
+</ecore:EPackage>

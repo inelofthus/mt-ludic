@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:app="platform:/plugin/no.hal.pg.runtime/model/app.ecore" xmlns:ineruntime="platform:/plugin/no.inela.runtime/model/runtime.ecore" xmlns:puzzletask2="platform:/plugin/no.inlea.puzzletask2.runtime/model/puzzletask2.ecore">
+  <app:GameApp model="/1">
+    <views xsi:type="ineruntime:LeaderboardGameView" model="/1" player="/1/@players.0">
+      <taskViews xsi:type="puzzletask2:PuzzleTaskView" model="/1/@tasks.0"/>
+      <taskViews xsi:type="puzzletask2:PuzzleTaskView" model="/1/@tasks.1"/>
+    </views>
+    <views xsi:type="ineruntime:LeaderboardGameView" model="/1" player="/1/@players.1">
+      <taskViews xsi:type="puzzletask2:PuzzleTaskView" model="/1/@tasks.0"/>
+      <taskViews xsi:type="puzzletask2:PuzzleTaskView" model="/1/@tasks.1"/>
+    </views>
+  </app:GameApp>
+  <ineruntime:LeaderboardGame>
+    <players>
+      <person href="Arc1.xmi#//@actors.0"/>
+    </players>
+    <players>
+      <person href="Arc1.xmi#//@actors.1"/>
+    </players>
+    <tasks xsi:type="puzzletask2:PuzzleTask2" players="/1/@players.0 /1/@players.1" latitude="59.0" longitude="10.0" openTime="2020-05-28T23:00:00.000+0200" closeTime="2020-05-28T23:00:00.000+0200" acceptableTargetDistance="100" maxScore="200" wrongAttemptPenalty="20">
+      <puzzle solution="123" instructions="123">
+        <puzzlePieces xsi:type="puzzletask2:TextPiece" name="123" text="123"/>
+      </puzzle>
+    </tasks>
+    <tasks xsi:type="puzzletask2:PuzzleTask2" players="/1/@players.0 /1/@players.1" latitude="59.7259" longitude="10.8233" closeTime="2020-04-29T20:00:00.000+0200" acceptableTargetDistance="0" maxScore="0" wrongAttemptPenalty="0">
+      <puzzle solution="a7b2" instructions="Go to stand to get the task approved">
+        <puzzlePieces xsi:type="puzzletask2:TextPiece" name="Pushup" text="Do as many pushups as you can in one minute"/>
+      </puzzle>
+    </tasks>
+  </ineruntime:LeaderboardGame>
+</xmi:XMI>

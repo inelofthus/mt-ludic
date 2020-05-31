@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="runtime" nsURI="platform:/plugin/no.inela.puzzletask.runtime/model/puzzletask.ecore"
+    nsPrefix="puzzletask">
+  <eClassifiers xsi:type="ecore:EClass" name="PuzzleTask">
+    <eOperations name="acceptPuzzleProposal" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean">
+      <eParameters name="proposal" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+      <eParameters name="player" eType="ecore:EClass ../../no.hal.pg.runtime/model/runtime.ecore#//Player"/>
+    </eOperations>
+    <eOperations name="calculateScore" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EInt">
+      <eParameters name="puzzleLevel" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"/>
+      <eParameters name="player" eType="ecore:EClass ../../no.hal.pg.runtime/model/runtime.ecore#//Player"/>
+      <eParameters name="isProposalCorrect" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
+    </eOperations>
+    <eOperations name="acceptPlayer" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean">
+      <eParameters name="player" eType="ecore:EClass ../../no.hal.pg.runtime/model/runtime.ecore#//Player"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="puzzles" upperBound="-1"
+        eType="#//Puzzle" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="playerLevels" upperBound="-1"
+        eType="#//PlayerToInt" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="playerTaskScores" eType="#//PlayerTaskScores"
+        containment="true"/>
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../no.hal.pg.runtime/model/runtime.ecore#//Task">
+      <eTypeArguments eClassifier="#//PlayerTaskScores"/>
+    </eGenericSuperTypes>
+    <eGenericSuperTypes eClassifier="ecore:EClass platform:/plugin/no.hal.pg.osm/model/osm.ecore#//GeoLocation"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PuzzlePiece">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="image" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="playerCount" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PuzzleTaskView">
+    <eOperations name="proposeAnswer" eType="#//PuzzleTaskView">
+      <eParameters name="proposal" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    </eOperations>
+    <eOperations name="finish"/>
+    <eOperations name="startPuzzle"/>
+    <eOperations name="acceptPlayer" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="image" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="score" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="level" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"
+        changeable="false" volatile="true" transient="true" unsettable="true" derived="true"/>
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../no.hal.pg.runtime/model/app.ecore#//TaskView">
+      <eTypeArguments eClassifier="#//PuzzleTask"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PlayerToInt" instanceClassName="java.util.Map$Entry">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="key" eType="ecore:EClass ../../no.hal.pg.runtime/model/runtime.ecore#//Player"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EIntegerObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Puzzle" abstract="true">
+    <eOperations name="acceptProposal" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean">
+      <eParameters name="proposal" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    </eOperations>
+    <eOperations name="finishPuzzle" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean">
+      <eParameters name="player" eType="ecore:EClass ../../no.hal.pg.runtime/model/runtime.ecore#//Player"/>
+    </eOperations>
+    <eOperations name="startPuzzle" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean">
+      <eParameters name="player" eType="ecore:EClass ../../no.hal.pg.runtime/model/runtime.ecore#//Player"/>
+    </eOperations>
+    <eOperations name="getImage" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString">
+      <eParameters name="player" eType="ecore:EClass ../../no.hal.pg.runtime/model/runtime.ecore#//Player"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="level" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SimplePuzzle" eSuperTypes="#//Puzzle">
+    <eOperations name="acceptProposal" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean">
+      <eParameters name="proposal" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    </eOperations>
+    <eOperations name="finishPuzzle" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean">
+      <eParameters name="player" eType="ecore:EClass ../../no.hal.pg.runtime/model/runtime.ecore#//Player"/>
+    </eOperations>
+    <eOperations name="startPuzzle" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean">
+      <eParameters name="player" eType="ecore:EClass ../../no.hal.pg.runtime/model/runtime.ecore#//Player"/>
+    </eOperations>
+    <eOperations name="getImage" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString">
+      <eParameters name="player" eType="ecore:EClass ../../no.hal.pg.runtime/model/runtime.ecore#//Player"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="instructions" eType="ecore:EClass ../../no.hal.pg.runtime/model/runtime.ecore#//InfoItem"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="solution" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="puzzlePieces" upperBound="-1"
+        eType="#//PuzzlePiece" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="playerPieces" upperBound="-1"
+        eType="#//PlayerToPuzzlePiece" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PlayerTaskScore">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="player" eType="ecore:EClass ../../no.hal.pg.runtime/model/runtime.ecore#//Player"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="score" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="level" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PlayerTaskScores">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="scores" upperBound="-1"
+        eType="#//PlayerTaskScore"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PlayerToPuzzlePiece" instanceClassName="java.util.Map$Entry">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="key" eType="ecore:EClass ../../no.hal.pg.runtime/model/runtime.ecore#//Player"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//PuzzlePiece"/>
+  </eClassifiers>
+</ecore:EPackage>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/no.inlea.puzzletask.runtime/src" modelPluginID="no.inlea.puzzletask.runtime"
+    modelName="Puzzletask" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    usedGenPackages="../../no.hal.pg.runtime/model/app.genmodel#//app ../../no.hal.pg.arc/model/arc.genmodel#//arc ../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../no.hal.pg.osm/model/osm.genmodel#//osm ../../no.hal.pg.runtime/model/runtime.genmodel#//runtime"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>puzzletask.ecore</foreignModel>
+  <genPackages prefix="Runtime" basePackage="no.inlea.puzzletask" disposableProviderFactory="true"
+      ecorePackage="puzzletask.ecore#/">
+    <genClasses ecoreClass="puzzletask.ecore#//PuzzleTask">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference puzzletask.ecore#//PuzzleTask/puzzles"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference puzzletask.ecore#//PuzzleTask/playerLevels"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference puzzletask.ecore#//PuzzleTask/playerTaskScores"/>
+      <genOperations ecoreOperation="puzzletask.ecore#//PuzzleTask/acceptPuzzleProposal">
+        <genParameters ecoreParameter="puzzletask.ecore#//PuzzleTask/acceptPuzzleProposal/proposal"/>
+        <genParameters ecoreParameter="puzzletask.ecore#//PuzzleTask/acceptPuzzleProposal/player"/>
+      </genOperations>
+      <genOperations ecoreOperation="puzzletask.ecore#//PuzzleTask/calculateScore">
+        <genParameters ecoreParameter="puzzletask.ecore#//PuzzleTask/calculateScore/puzzleLevel"/>
+        <genParameters ecoreParameter="puzzletask.ecore#//PuzzleTask/calculateScore/player"/>
+        <genParameters ecoreParameter="puzzletask.ecore#//PuzzleTask/calculateScore/isProposalCorrect"/>
+      </genOperations>
+      <genOperations ecoreOperation="puzzletask.ecore#//PuzzleTask/acceptPlayer">
+        <genParameters ecoreParameter="puzzletask.ecore#//PuzzleTask/acceptPlayer/player"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="puzzletask.ecore#//PuzzlePiece">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute puzzletask.ecore#//PuzzlePiece/image"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute puzzletask.ecore#//PuzzlePiece/playerCount"/>
+    </genClasses>
+    <genClasses ecoreClass="puzzletask.ecore#//PuzzleTaskView">
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute puzzletask.ecore#//PuzzleTaskView/image"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute puzzletask.ecore#//PuzzleTaskView/score"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute puzzletask.ecore#//PuzzleTaskView/level"/>
+      <genOperations ecoreOperation="puzzletask.ecore#//PuzzleTaskView/proposeAnswer">
+        <genParameters ecoreParameter="puzzletask.ecore#//PuzzleTaskView/proposeAnswer/proposal"/>
+      </genOperations>
+      <genOperations ecoreOperation="puzzletask.ecore#//PuzzleTaskView/finish"/>
+      <genOperations ecoreOperation="puzzletask.ecore#//PuzzleTaskView/startPuzzle"/>
+      <genOperations ecoreOperation="puzzletask.ecore#//PuzzleTaskView/acceptPlayer"/>
+    </genClasses>
+    <genClasses ecoreClass="puzzletask.ecore#//PlayerToInt">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference puzzletask.ecore#//PlayerToInt/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute puzzletask.ecore#//PlayerToInt/value"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="puzzletask.ecore#//Puzzle">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute puzzletask.ecore#//Puzzle/level"/>
+      <genOperations ecoreOperation="puzzletask.ecore#//Puzzle/acceptProposal">
+        <genParameters ecoreParameter="puzzletask.ecore#//Puzzle/acceptProposal/proposal"/>
+      </genOperations>
+      <genOperations ecoreOperation="puzzletask.ecore#//Puzzle/finishPuzzle">
+        <genParameters ecoreParameter="puzzletask.ecore#//Puzzle/finishPuzzle/player"/>
+      </genOperations>
+      <genOperations ecoreOperation="puzzletask.ecore#//Puzzle/startPuzzle">
+        <genParameters ecoreParameter="puzzletask.ecore#//Puzzle/startPuzzle/player"/>
+      </genOperations>
+      <genOperations ecoreOperation="puzzletask.ecore#//Puzzle/getImage">
+        <genParameters ecoreParameter="puzzletask.ecore#//Puzzle/getImage/player"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="puzzletask.ecore#//SimplePuzzle">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference puzzletask.ecore#//SimplePuzzle/instructions"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute puzzletask.ecore#//SimplePuzzle/solution"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference puzzletask.ecore#//SimplePuzzle/puzzlePieces"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference puzzletask.ecore#//SimplePuzzle/playerPieces"/>
+      <genOperations ecoreOperation="puzzletask.ecore#//SimplePuzzle/acceptProposal">
+        <genParameters ecoreParameter="puzzletask.ecore#//SimplePuzzle/acceptProposal/proposal"/>
+      </genOperations>
+      <genOperations ecoreOperation="puzzletask.ecore#//SimplePuzzle/finishPuzzle">
+        <genParameters ecoreParameter="puzzletask.ecore#//SimplePuzzle/finishPuzzle/player"/>
+      </genOperations>
+      <genOperations ecoreOperation="puzzletask.ecore#//SimplePuzzle/startPuzzle">
+        <genParameters ecoreParameter="puzzletask.ecore#//SimplePuzzle/startPuzzle/player"/>
+      </genOperations>
+      <genOperations ecoreOperation="puzzletask.ecore#//SimplePuzzle/getImage">
+        <genParameters ecoreParameter="puzzletask.ecore#//SimplePuzzle/getImage/player"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="puzzletask.ecore#//PlayerTaskScore">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference puzzletask.ecore#//PlayerTaskScore/player"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute puzzletask.ecore#//PlayerTaskScore/score"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute puzzletask.ecore#//PlayerTaskScore/level"/>
+    </genClasses>
+    <genClasses ecoreClass="puzzletask.ecore#//PlayerTaskScores">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference puzzletask.ecore#//PlayerTaskScores/scores"/>
+    </genClasses>
+    <genClasses ecoreClass="puzzletask.ecore#//PlayerToPuzzlePiece">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference puzzletask.ecore#//PlayerToPuzzlePiece/key"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference puzzletask.ecore#//PlayerToPuzzlePiece/value"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
